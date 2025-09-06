@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Быстрый клик - Игра на реакцию</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
+</head>
+<body>
+    <!-- Основной контейнер игры -->
+    <div class="game-container">
+        <!-- Экран начала игры -->
+        <div class="start-screen" id="startScreen">
+            <h1>Игра "Взорви кота!"</h1>
+            <div class="form-group">
+                <label for="playerName">Ваше имя:</label>
+                <input type="text" id="playerName" placeholder="Введите имя" maxlength="20">
+                <span class="error" id="nameError"></span>
+            </div>
+            <div class="form-group">
+                <label for="difficulty">Уровень сложности:</label>
+                <select id="difficulty">
+                    <option value="easy">Легкий</option>
+                    <option value="medium">Средний</option>
+                    <option value="hard">Сложный</option>
+                </select>
+            </div>
+            <button id="startBtn">Начать игру</button>
+            <button id="tutorialBtn">Обучение</button>
+            <div class="high-scores">
+                <h3>Лучшие результаты:</h3>
+                <ol id="highScoresList"></ol>
+            </div>
+        </div>
+
+        <!-- Экран обучения -->
+        <div class="tutorial-screen" id="tutorialScreen">
+            <h2>Обучение</h2>
+            <div class="tutorial-content">
+                <p>Цель игры - кликать по появляющимся котам как можно быстрее.</p>
+                <p>Чем быстрее вы кликаете, тем больше очков получаете.</p>
+                <p>На разных уровнях сложности:</p>
+                <ul>
+                    <li><strong>Легкий:</strong> Большие котики, медленное исчезновение</li>
+                    <li><strong>Средний:</strong> Средние котики, нормальная скорость</li>
+                    <li><strong>Сложный:</strong> Маленькие котики, быстрое исчезновение</li>
+                </ul>
+                <p>Секрет: попробуйте нажать секретную комбинацию клавиш во время игры!</p>
+                <button id="backToMenuBtn">Вернуться в меню</button>
+            </div>
+        </div>
+
+        <!-- Игровой экран -->
+        <div class="game-screen" id="gameScreen">
+            <div class="game-header">
+                <div class="score">Очки: <span id="scoreValue">0</span></div>
+                <div class="time">Время: <span id="timeValue">60</span>с</div>
+                <div class="level">Уровень: <span id="levelValue">Легкий</span></div>
+                <div class="reaction">Реакция: <span id="reactionValue">-</span>мс</div>
+            </div>
+            <div class="game-area" id="gameArea"></div> <!-- Область, где появляются цели -->
+            <div class="game-controls">
+                <button id="pauseBtn">Пауза</button>
+                <button id="soundBtn">Звук Вкл</button>
+            </div>
+        </div>
+
+        <!-- Экран окончания игры -->
+        <div class="end-screen" id="endScreen">
+            <h2>Игра окончена!</h2>
+            <div class="result">Ваш результат: <span id="finalScore">0</span> очков</div>
+            <div class="avg-reaction">Средняя реакция: <span id="avgReaction">0</span>мс</div>
+            <button id="restartBtn">Играть снова</button>
+            <button id="menuBtn">Главное меню</button>
+            <div class="secret-message" id="secretMessage"></div> <!-- Сообщение о секретной пасхалке -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
